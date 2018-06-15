@@ -5,7 +5,7 @@ $(document).on("click", ".car", function () {
 
     var car = $(this).attr("data-name");
     // var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=we748bwKG6dqEfiIdJdX8nmZixYkk5x9&q=cars&limit=10&offset=0&rating=PG-13&lang=en";
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + car + "&api_key=we748bwKG6dqEfiIdJdX8nmZixYkk5x9&q=cars&limit=10&offset=0&rating=PG-13&lang=en";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + car + "&api_key=we748bwKG6dqEfiIdJdX8nmZixYkk5x9&limit=10&offset=0&rating=PG-13&lang=en";
     // Creating an AJAX call for the specific car button being clicked
     $.ajax({
         url: queryURL,
