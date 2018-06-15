@@ -5,7 +5,7 @@
       function displayCarInfo() {
 
         var car = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=we748bwKG6dqEfiIdJdX8nmZixYkk5x9&q=cars&limit=10&offset=0&rating=PG-13&lang=en";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + car +  "api_key=we748bwKG6dqEfiIdJdX8nmZixYkk5x9&q=cars&limit=10&offset=0&rating=PG-13&lang=en";
 
         // Creating an AJAX call for the specific car button being clicked
         $.ajax({
@@ -27,11 +27,14 @@
           // Retrieving the URL for the still image
           var imgURL = response.data[i].images.fixed_height_still.url;
           // Creating an element to hold the still image
-          var image = $("<img>").attr("src", imgURL);
+          var imageURL = $("<img>");
+          imageURL.attr("data-animate",response.data[i].images.fixed_height.url); 
           // Appending the still image
-          carDiv.append(image);
+          carDiv.append(imgURL);
           // Retrieving the URL for the still image
           var imgMURL = response.data[i].images.fixed_width.url;
+          var imgMURL = $("<img>");
+          imgMURL.attr("data-still",response.data[i].images.fixed_width.url);
           // Creating an element to hold the still image
         //   var imageM = $("<img>").attr("src", imgMURL);
         //   // Appending the image
@@ -42,8 +45,8 @@
           }
     });
     }
-        image.attr("data-state", "still");
-        imgMURL.attr("data-state", "animate");
+        // image.attr("data-state", "still");
+        // imgMURL.attr("data-state", "animate");
 
         $(".gif").on("click", function() {
             var state = $(this).attr("data-state");
