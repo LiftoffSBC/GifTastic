@@ -15,8 +15,8 @@ $(document).on("click", ".car", function () {
         $("#cars-view").empty();
         // console.log(queryURL)
         for (var i = 0; i < response.data.length; i++) {
-            // Creating a div to hold the car
-            var carDiv = $("<div class='car'>");
+            // Creating a div to hold the cars
+            var carDiv = $("<div class='carDiv'>");
             var rating = response.data[i].rating;
             var rate = $("<p>").text("Rating: " + rating);
             var img = $("<img>");
@@ -30,7 +30,7 @@ $(document).on("click", ".car", function () {
             // Putting the entire car above the previous cars
             $("#cars-view").prepend(carDiv);
         }
-        $(document).on("click", ".gif", function () {
+        $(".gif").on("click", function () {
             var state = $(this).attr("data-state");
 
             if (state === "still") {
@@ -57,8 +57,8 @@ function renderButtons() {
         // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
         var a = $("<button>");
         // Adding a class of car-btn to our button
-        a.addClass("car-btn");
-
+        a.addClass("car");
+       
         // Adding a data-attribute
         a.attr("data-name", cars[i]);
         a.attr("data-state", "still");
