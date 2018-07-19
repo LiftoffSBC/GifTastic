@@ -1,0 +1,15 @@
+body {
+    font-family: fantasy;
+    font-size: 30px;
+    line-height: 34px;
+    color:white;
+    background: url("../images/car back_1920x1080.jpg");
+}
+  
+#cars-view, #car-form {
+      font-family: fantasy;
+  }
+
+  #buttons-view {
+      background-size: 200%
+  }
